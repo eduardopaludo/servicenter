@@ -19,6 +19,18 @@ class PartnersController extends Controller
 
     protected $model;
 
+    protected $rules = [
+        'name' => 'required|min:3',
+        'description' => 'required',
+    ];
+
+    protected $messages = [
+        'required' => ':attribute é obrigatório',
+        'min' => ':attribute precisa de pelo menos :min caracteres',
+    ];
+
+    protected $relationships = ["address"];
+
     public function __construct(Partner $model)
     {
         $this->model = $model;
