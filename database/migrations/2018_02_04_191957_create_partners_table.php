@@ -13,7 +13,16 @@ class CreatePartnersTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('partners', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->text('description');
+            $table->integer('new_orders')->default(0);
+            $table->integer('returning_orders')->default(0);
+            $table->integer('votes_qty')->default(0);
+            $table->integer('points')->default(0);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +32,6 @@ class CreatePartnersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('partners');
     }
 }

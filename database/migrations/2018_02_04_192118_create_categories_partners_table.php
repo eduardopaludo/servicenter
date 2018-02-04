@@ -13,7 +13,12 @@ class CreateCategoriesPartnersTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('categories_partners', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('category_id');
+            $table->integer('partner_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateCategoriesPartnersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('categories_partners');
     }
 }

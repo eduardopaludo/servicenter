@@ -13,7 +13,11 @@ class CreatePartnersPhotosTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('partner_photos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('url', 250);
+            $table->integer('partner_id');
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class CreatePartnersPhotosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('partner_photos');
     }
 }
