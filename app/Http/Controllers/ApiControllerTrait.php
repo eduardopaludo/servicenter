@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Request;
+
 trait ApiControllerTrait
 {
     public function index(Request $request){
